@@ -5,8 +5,9 @@ import com.webank.authmanager.contract.AuthManager;
 import com.webank.authmanager.factory.AuthManagerFactory;
 import com.webank.authmanager.service.AuthByAdminService;
 import com.webank.authmanager.utils.HashUtils;
-import org.fisco.bcos.sdk.BcosSDK;
-import org.fisco.bcos.sdk.client.Client;
+import org.fisco.bcos.sdk.v3.BcosSDK;
+import org.fisco.bcos.sdk.v3.client.Client;
+import org.fisco.bcos.sdk.v3.BcosSDK;
 
 /**
  * @author aaronchu
@@ -16,7 +17,7 @@ import org.fisco.bcos.sdk.client.Client;
 public class SDKDemo {
     public static void main(String[] args) throws Exception{
         BcosSDK bcosSDK = BcosSDK.build("conf/config.toml");
-        Client client = bcosSDK.getClient(1);
+        Client client = bcosSDK.getClient("1");
         AuthManagerFactory authManagerFactory = new AuthManagerFactory(client);
         //Deploy contract
         AuthManager authManager = authManagerFactory.createAdmin();
